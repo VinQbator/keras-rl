@@ -202,6 +202,10 @@ class DQNAgent(AbstractDQNAgent):
         ]
         trainable_model.compile(optimizer=optimizer, loss=losses, metrics=combined_metrics)
         self.trainable_model = trainable_model
+        
+        self.optimizer = self.trainable_model.optimizer
+        if self.target_model_update < 1.:
+            self.optimizer = self.optimizer.optimizer
 
         self.compiled = True
 
