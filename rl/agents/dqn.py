@@ -138,7 +138,7 @@ class DQNAgent(AbstractDQNAgent):
             else:
                 assert False, "dueling_type must be one of {'avg','max','naive'}"
 
-            model = Model(inputs=model.input, outputs=outputlayer)
+            model = Model(inputs=model.input, outputs=outputlayer, name=model.name)
 
         # Related objects.
         self.model = model
